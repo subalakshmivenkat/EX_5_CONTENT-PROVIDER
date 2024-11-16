@@ -1,38 +1,23 @@
-
+# Date:12.09.2024
 # Ex.No:5 Create Your Own Content Providers to get Contacts details.
-
-
 ## AIM:
-
 To create your own content providers to get contacts details using Android Studio.
-
 ## EQUIPMENTS REQUIRED:
-
 Android Studio(Latest Version)
 
 ## ALGORITHM:
-
 Step 1: Open Android Stdio and then click on File -> New -> New project.
-
 Step 2: Then type the Application name as “contentprovider″ and click Next. 
-
 Step 3: Then select the Minimum SDK as shown below and click Next.
-
 Step 4: Then select the Empty Activity and click Next. Finally click Finish.
-
 Step 5: Design layout in activity_main.xml.
-
 Step 6: Get contacts details and Display details give in MainActivity file.
-
 Step 7: Save and run the application.
-
 ## PROGRAM:
 ```
-/*
 Program to print the contact name and phone number using content providers.
 Developed by: SUBALAKSHMI V
 Registeration Number : 212222040162
-*/
 ```
 mainActivity.java
 ```
@@ -46,43 +31,30 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
 public class MainActivity extends AppCompatActivity {
-
     private TextView textViewContacts;
     int count=0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Button buttonLoadContacts = findViewById(R.id.button);
-
         buttonLoadContacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loadContacts();
             }
-        });
-    }
-
+        }); }
     private void loadContacts() {
         StringBuilder stringBuilder = new StringBuilder();
-
         Cursor cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
                 null, null, null, null);
-
         if (cursor != null && cursor.getCount() > 0) {
             int nameIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME_PRIMARY);
             int phoneIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-
             while (cursor.moveToNext()) {
                 String name = nameIndex != -1 ? cursor.getString(nameIndex) : "No Name";
                 String phoneNumber = phoneIndex != -1 ? cursor.getString(phoneIndex) : "No Phone Number";
-
                 stringBuilder.append("Name: ").append(name).append("\n").append("Phone: ").append(phoneNumber).append("\n\n");
                 count = count+1;
             }
@@ -92,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "No contacts found", Toast.LENGTH_SHORT).show();
         }
-
         System.out.println("Total Count of Contacts: "+count);}
 }
 ```
@@ -104,7 +75,6 @@ activityMain.xml
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
@@ -113,8 +83,6 @@ activityMain.xml
         android:layout_centerHorizontal="true"
         android:backgroundTint="#2196F3"
         android:layout_marginTop="50dp"/>
-
-
 </RelativeLayout>
 ```
 androidManifest.xml
@@ -123,7 +91,6 @@ androidManifest.xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.ex5">
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -139,19 +106,14 @@ androidManifest.xml
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-
 </manifest>![Screenshot 2024-09-17 194637](https://github.com/user-attachments/assets/3e17ead9-eb04-43f3-b6e5-10ddd1dae911)
-
 ```
 ## OUTPUT
 ![image](https://github.com/user-attachments/assets/f4f13f27-9839-41f4-a274-1d07b13ce7a8)
-
 ![image](https://github.com/user-attachments/assets/980323a9-2529-4de2-bfb2-2e6963f0dad4)
-
 ## RESULT
 Thus a Simple Android Application create your own content providers to get contacts details using Android Studio is developed and executed successfully.
