@@ -113,7 +113,8 @@ androidManifest.xml
 </manifest>![Screenshot 2024-09-17 194637](https://github.com/user-attachments/assets/3e17ead9-eb04-43f3-b6e5-10ddd1dae911)
 ```
 ## OUTPUT
-![image](https://github.com/user-attachments/assets/f4f13f27-9839-41f4-a274-1d07b13ce7a8)
-![image](https://github.com/user-attachments/assets/980323a9-2529-4de2-bfb2-2e6963f0dad4)
+<img src ="https://github.com/user-attachments/assets/f4f13f27-9839-41f4-a274-1d07b13ce7a8" width=200>
+<img src ="https://github.com/user-attachments/assets/980323a9-2529-4de2-bfb2-2e6963f0dad4" width=200>
+
 ## RESULT
 Thus a Simple Android Application create your own content providers to get contacts details using Android Studio is developed and executed successfully.
